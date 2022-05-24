@@ -1,15 +1,37 @@
 <template>
   <div class="home">
     <div class="container">
-      <form class="row align-items-center" @submit.stop.prevent="submit">
-        <b-form-group label-cols="4" label-cols-lg="2" label-size="sm" label="Small" label-for="input-sm">
-          <b-form-input v-model="form.username" id="input-sm" size="sm"></b-form-input>
+      <b-form @submit="submit">
+        <b-form-group
+            id="username-input-label"
+            label="Email address:"
+            label-for="username-input"
+            description="We'll never share your email with anyone else."
+        >
+          <b-form-input
+              id="username-input"
+              v-model="form.username"
+              type="email"
+              placeholder="Enter email"
+              required
+          ></b-form-input>
         </b-form-group>
-        <b-form-group label-cols="4" label-cols-lg="2" label-size="sm" label="Small" label-for="input-sm">
-          <b-form-input v-model="form.password" type="password" id="input-sm" size="sm"></b-form-input>
+        <b-form-group
+            id="password-input-label"
+            label="Password:"
+            label-for="password-input"
+            description="Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji."
+        >
+          <b-form-input
+              id="password-input"
+              v-model="form.password"
+              type="password"
+              placeholder="Enter password"
+              required
+          ></b-form-input>
         </b-form-group>
-        <b-button type="submit">Button</b-button>
-      </form>
+        <b-button type="submit" variant="primary">Login</b-button>
+      </b-form>
     </div>
   </div>
 </template>
