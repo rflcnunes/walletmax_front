@@ -14,11 +14,11 @@
                       placeholder="Enter credit value"></b-form-input>
       </b-form>
     </div>
-    <div class="mb-3 formBtn">
-      <div class="btn-group" role="group">
-        <button type="submit" @click="deposit()" class="btn btn-primary">Deposit</button>
-        <button type="submit" @click="withdraw()" class="btn btn-primary">Withdraw</button>
-      </div>
+    <div>
+      <b-button-group>
+        <b-button type="submit" @click="deposit()">Debit</b-button>
+        <b-button type="submit" @click="withdraw()">Credit</b-button>
+      </b-button-group>
     </div>
     <b-table :per-page="perPage"
              id="historicList"
