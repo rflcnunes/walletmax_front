@@ -2,17 +2,6 @@
   <div class="container">
     <div class="row align-items-center">
       <div class="col">
-        <form @submit.stop.prevent="deposit">
-          <h1>Deposit</h1>
-          <div class="input-group mb-3 col-sm">
-            <span class="input-group-text">$</span>
-            <input type="number" v-model="depositValue" class="form-control"
-                   aria-label="Amount (to the nearest dollar)">
-            <span class="input-group-text">.00</span>
-          </div>
-        </form>
-      </div>
-      <div class="col">
         <form @submit.stop.prevent="withdraw">
           <h1>Withdraw</h1>
           <div class="input-group mb-3 col-sm">
@@ -22,6 +11,14 @@
           </div>
         </form>
       </div>
+    </div>
+    <div class="row align-items-center">
+      <b-form>
+        <b-form-input @submit="deposit"
+                      class="mb-3 col-sm"
+                      v-model="depositValue"
+                      placeholder="Enter debit value"></b-form-input>
+      </b-form>
     </div>
     <div class="mb-3 formBtn">
       <div class="btn-group" role="group">
@@ -100,6 +97,7 @@ export default {
         }
       }).then(res => {
         console.log(res);
+        window.location.reload()
       })
     },
     withdraw() {
