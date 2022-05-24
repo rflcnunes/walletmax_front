@@ -49,6 +49,7 @@ export default {
           .then(res => {
             console.log(res);
             Cookie.set('_my_app_token', res.token);
+            this.$router.push('/homepage')
           })
     },
   }
