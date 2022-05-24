@@ -29,22 +29,18 @@
         <button type="submit" @click="withdraw()" class="btn btn-primary">Withdraw</button>
       </div>
     </div>
-    <table class="table">
-      <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Type</th>
-        <th scope="col">Value</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr v-for="item in historic" v-bind:key="item.id">
-        <th scope="row">{{ item.id }}</th>
-        <td>{{ item.type }}</td>
-        <td>U${{ item.value }}</td>
-      </tr>
-      </tbody>
-    </table>
+    <b-table :per-page="perPage"
+             id="historicList"
+             :current-page="currentPage"
+             striped hover
+             :items="historic"></b-table>
+    <b-pagination
+        v-model="currentPage"
+        :total-rows="rows"
+        :per-page="perPage"
+        aria-controls="historicList"
+        align="center"
+    ></b-pagination>
   </div>
 </template>
 
@@ -57,6 +53,8 @@ export default {
   name: "HomePageView",
   data() {
     return {
+      perPage: 10,
+      currentPage: 1,
       historic: [],
       depositValue: '',
       withdrawValue: '',
@@ -64,6 +62,11 @@ export default {
   },
   created() {
     this.getAll();
+  },
+  computed: {
+    rows() {
+      return this.historic.length
+    }
   },
   methods: {
     getAll() {
