@@ -1,36 +1,46 @@
 <template>
   <div class="home">
     <div class="container">
-      <b-form @submit="submit">
-        <b-form-group
-            id="username-input-label"
-            label="Email address:"
-            label-for="username-input"
-            description="We'll never share your email with anyone else."
-        >
-          <b-form-input
-              id="username-input"
-              v-model="form.username"
-              type="email"
-              placeholder="Enter email"
-              required
-          ></b-form-input>
-        </b-form-group>
+      <h1>WALLET<b>MAX</b></h1>
+      <b-form @submit.prevent="submit">
+        <div>
+          <b-form-group
+              id="username-input-label"
+              label="Email address:"
+              label-for="username-input"
+          >
+            <b-form-input
+                id="username-input"
+                v-model="form.username"
+                type="email"
+                placeholder="Enter email"
+                valid-feedback="Thank you!"
+                :invalid-feedback="invalidFeedback"
+                :state="state"
+                trim
+                autocomplete="off"
+                required
+            ></b-form-input>
+          </b-form-group>
+        </div>
         <b-form-group
             id="password-input-label"
             label="Password:"
             label-for="password-input"
-            description="Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji."
         >
           <b-form-input
               id="password-input"
               v-model="form.password"
               type="password"
               placeholder="Enter password"
+              :invalid-feedback="invalidFeedbackPassword"
+              :state="statePassword"
+              trim
+              aria-autocomplete="none"
               required
           ></b-form-input>
         </b-form-group>
-        <b-button type="submit" variant="primary">Login</b-button>
+        <b-button class="btn" type="submit">Login</b-button>
       </b-form>
     </div>
   </div>
@@ -47,6 +57,26 @@ export default {
         username: '',
         password: ''
       }
+    }
+  },
+  computed: {
+    state() {
+      return this.form.username.length >= 5
+    },
+    invalidFeedback() {
+      if (this.form.username.length > 0) {
+        return 'Enter at least 5 characters.'
+      }
+      return 'Please enter something.'
+    },
+    statePassword() {
+      return this.form.password.length >= 5
+    },
+    invalidFeedbackPassword() {
+      if (this.form.password.length > 0) {
+        return 'Enter at least 5 characters.'
+      }
+      return 'Please enter something.'
     }
   },
   methods: {
@@ -77,3 +107,29 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+h1 {
+  text-align: center;
+}
+
+.container {
+  max-width: 50%;
+  min-width: 25%;
+  margin-top: 20%;
+}
+
+#username-input, #password-input {
+  margin: 15px;
+  max-width: 90%;
+  min-width: 25%;
+}
+
+.btn {
+  max-width: 100%;
+  min-width: 25%;
+  border: 0;
+  margin: 0 50% 0 37%;
+  background-color: #2c3e50;
+}
+</style>
