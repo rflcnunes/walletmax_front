@@ -1,12 +1,13 @@
 <template>
   <div id="app">
+    <h1>WALLET<b>MAX</b></h1>
     <router-view/>
   </div>
 </template>
 
 <style>
-nav {
-  padding: 30px;
+#app {
+  text-align: center;
 }
 
 nav a {
