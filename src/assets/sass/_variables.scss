@@ -1,0 +1,44 @@
+// Body
+$body-bg: #f8fafc;
+$reset-border: 0;
+$border-radius: 20px;
+
+// Typography
+$font-family-primary: 'Comfortaa', cursive;
+$font-family-secondary: 'Open Sans', sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+$font-color-primary: #483698;
+$font-color-secondary: #282828;
+
+// Buttons
+$big-button-size: 100%;
+$btn-bg-color: #483698;
+$btn-font-color: white;
+
+// Colors
+$color-primary: #483698;
+$color-secondary: #282828;
+
+// Spacing
+$spacing-base: 1.6rem;
+$spacing-big: 2.4rem;
+$spacing-huge: 3.2rem;
+
+// Breakpoints
+$breakpoint-xs: 480px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 992px;
+
+// Media Queries
+$media-xs: (min-width: 480px) and (max-width: 767px);
+$media-sm: (min-width: 768px) and (max-width: 991px);
+$media-md: (min-width: 992px) and (max-width: 1199px);
+
+// Fonts
+$font-size-h1: 4.8rem;
+$font-size-h2: 3.6rem;
+$font-size-h3: 2.4rem;
+$font-size-h4: 1.6rem;
+$font-size-h5: 1.2rem;
+
