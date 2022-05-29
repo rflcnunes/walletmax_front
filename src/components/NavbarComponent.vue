@@ -86,8 +86,4 @@ export default {
   margin-left: 10px;
 }
 
-.close {
-  display: none;
-}
-
 </style>
