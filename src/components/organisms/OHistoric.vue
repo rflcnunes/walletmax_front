@@ -87,7 +87,7 @@ export default {
     },
     getAll() {
       const token = Cookie.get('_my_app_token');
-      axios.get('http://localhost/api/historic', {
+      axios.get('https://walletmax-api.herokuapp.com/api/historic', {
         headers: {
           'Authorization': "Bearer " + token,
         }

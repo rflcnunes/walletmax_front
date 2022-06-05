@@ -41,7 +41,7 @@ export default {
       console.log(token)
       axios({
         method: 'post',
-        url: 'http://localhost/api/credit',
+        url: 'https://walletmax-api.herokuapp.com/api/credit',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': "Bearer " + token,

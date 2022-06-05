@@ -90,7 +90,7 @@ export default {
         'Access': 'application/json'
       }
 
-      fetch(`http://localhost/api/login`, {
+      fetch(`https://walletmax-api.herokuapp.com/api/login`, {
         method: 'POST',
         headers: headers,
         body: JSON.stringify(payload)

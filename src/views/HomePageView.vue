@@ -46,7 +46,7 @@ export default {
   methods: {
     getBalance() {
       const token = Cookie.get('_my_app_token');
-      axios.get('http://localhost/api/balance/json', {
+      axios.get('https://walletmax-api.herokuapp.com/api/balance/json', {
         headers: {
           'Authorization': "Bearer " + token,
         }
